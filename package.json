@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Benjamin15122/enkrinojs.git"
+    "url": "git+ssh://git@github.com:nemoworks/enkrinojs.git"
   },
   "keywords": [
     "process",
@@ -17,9 +17,9 @@
   "author": "benjamin15122",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Benjamin15122/enkrinojs/issues"
+    "url": "https://github.com/nemoworks/enkrinojs/issues"
   },
-  "homepage": "https://github.com/Benjamin15122/enkrinojs#readme",
+  "homepage": "https://github.com/nemoworks/enkrinojs#readme",
   "dependencies": {
     "lodash": "^4.17.21"
   }
