@@ -1,6 +1,6 @@
 {
   "name": "enkrino",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Approval process engine",
   "main": "index.js",
   "scripts": {

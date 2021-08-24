@@ -75,29 +75,24 @@ module.exports = {
     @param graph {nodes:[],edges[]}
     @param id String
      */
-  start: (lc) => {
-    const { enkrino } = lc;
+  start: (enkrino) => {
     let newenkrino = {
       ...enkrino,
       status: "running",
       current: enkrino.start,
       graph: {
         ...enkrino.graph,
-        edges: enkrino.graph.edges.filter(e => e.spec.temporary===false)
+        edges: enkrino.graph.edges.filter((e) => e.spec.temporary === false),
       },
       mirror: {
         nodes: enkrino.graph.nodes,
         edges: [],
       },
     };
-    return {
-      ...lc,
-      enkrino: newenkrino,
-    };
+    return newenkrino;
   },
 
-  next: (lc, nid) => {
-    const { enkrino } = lc;
+  next: (enkrino, nid) => {
     let sus = successors(enkrino.graph, enkrino.current);
     let newenkrino = {};
     if (sus.includes(nid)) {
@@ -115,6 +110,8 @@ module.exports = {
           edges: _.uniqWith(eset, (A, B) => A.from === B.from && A.to === B.to),
         },
       };
+    } else if (enkrino.current === nid) {
+      return enkrino;
     } else {
       let eset = enkrino.graph.edges;
       eset.push({
@@ -139,14 +136,10 @@ module.exports = {
         },
       };
     }
-    return {
-      ...lc,
-      enkrino: newenkrino,
-    };
+    return newenkrino;
   },
-  nexts: (lc) => {
-    const { enkrino } = lc;
-    let current = enkrino.current?enkrino.current:enkrino.start;
+  nexts: (enkrino) => {
+    let current = enkrino.current ? enkrino.current : enkrino.start;
     let forwards = successors(enkrino.graph, current);
     let backwards = [];
     switch (enkrino.graph.nodes.find((e) => e.id === current).backward) {
@@ -163,16 +156,11 @@ module.exports = {
       backwards: backwards,
     };
   },
-  finish: (lc) => {
-    const { enkrino } = lc;
+  finish: (enkrino) => {
     let newenkrino = {
       ...enkrino,
       status: "finished",
     };
-    return {
-      ...lc,
-      enkrino: newenkrino,
-    };
+    return newenkrino;
   },
 };
-
