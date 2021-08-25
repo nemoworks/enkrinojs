@@ -9,6 +9,6 @@ enkrio是一个极简的业务流程引擎。
 
 虽然BPMN应用广泛，但它在某些场景下仍然存在不足。例如我们经常会使用BPMN建模一个“审批”流程。
 
-![Approval Process](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrino/master/doc/flow1.pu)
+![Approval Process](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/doc/flow1.pu)
 
 这种特定业务流程执行过程中，经常存在退回、撤销、越级提交和会签的具体业务需求，确定的流程模型
