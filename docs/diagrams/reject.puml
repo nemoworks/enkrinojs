@@ -1,0 +1,16 @@
+@startuml
+start
+
+repeat
+repeat
+repeat
+:发起申请;
+:部门审批;
+repeat while (退回?)
+:事业部审批;
+repeat while (退回?)
+:总办审批;
+repeat while (退回?)
+
+end
+@enduml
