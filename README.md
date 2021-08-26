@@ -31,5 +31,20 @@ enkrio是一个极简的业务流程引擎。
 为此我们开发enkrino引擎以解决这一问题，在建模过程简单化和执行过程灵活化之间取得平衡。
 
 
+![enkrino1](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino1.puml)
+
+![enkrino2](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino2.puml)
+
+![enkrino3](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino3.puml)
+
+![enkrino4](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino4.puml)
+
+![enkrino5](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino5.puml)
+
+![enkrino6](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino6.puml)
+
+![enkrino7](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino7.puml)
+
+
 # enkrino设计理念
 
