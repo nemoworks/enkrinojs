@@ -10,5 +10,6 @@ state 总办审批
 总办审批 -left[dashed]-> 部门审批 :退回
 总办审批 -left[dashed]-> 发起申请 :退回
 总办审批 -right-> [*] :结束
+发起申请 -up[#green,dashed]-> 总办审批 :退回提交
 
 @enduml
