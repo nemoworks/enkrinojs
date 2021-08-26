@@ -1,14 +1,9 @@
 @startuml
-start
-
-repeat
-:发起申请;
-:部门审批;
-repeat while (退回?)
-repeat
-:事业部审批;
-:总办审批;
-repeat while (退回?)
-
-end
+[*] -right-> 发起申请 :开始
+发起申请 -right-> 部门审批 :提交
+部门审批 -right-> 总办审批 :提交
+部门审批 -left[dashed]-> 发起申请 :退回
+总办审批 -left[dashed]-> 部门审批 :退回
+总办审批 -left[dashed]-> 发起申请 :退回
+总办审批 -right-> [*] :结束
 @enduml
