@@ -15,10 +15,10 @@ state model {
 }
 
 state "mirror model" as mirror#lightblue{
-    state "S1'" as MS1 : \t**start | starting context**
-    state "S2'" as MS2 : \t**S1 | context 1**
-    state "S3'" as MS3 : \t
-    state "S4'" as MS4 ##[bold]green : \t**S2 | context 2**
+    state "S1" as MS1 : \t**start | starting context**
+    state "S2" as MS2 : \t**S1 | context 1**
+    state "S3" as MS3 : \t
+    state "S4" as MS4 ##[bold]green : \t**S2 | context 2**
     MS2 -down[dashed]-> MS1
     MS4 -up[dashed]-> MS2
 
