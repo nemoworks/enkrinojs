@@ -1,9 +1,9 @@
 # enkrino
 
-## enkrio是什么？
+## enkrino是什么？
 enkrio是一个极简的业务流程引擎。
 
-## 为什么enkrio
+## 为什么enkrino
 
 [业务流程（business process）](https://en.wikipedia.org/wiki/Business_process)是一组相关的、具有结构的活动，这组活动按特定顺序被执行可产出产品或服务。[BPMN](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation)是当前应用最广的业务流程描述规范之一，主流的业务流程执行引擎如Activiti、Camunda、Flowable等也以支持BPMN业务模型为主。
 
@@ -24,4 +24,12 @@ enkrio是一个极简的业务流程引擎。
 
 此外，实际业务中可能还存在“回退后可直接提交至回退发起节点”这样的需要。如下图所示，如果“总办审批”直接回退到“发起申请”活动，则发起者可以修改后直接提交至总办进行重新审批。
 
-![Reject Process 2](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/flow3.puml)
+![Reject Process 3](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/flow3.puml)
+
+这一问题存在的根本是BPMN模型的执行引擎只依据设计时的静态模型进行执行，所以执行时退回、退回提交等复杂情况需要在BPMN中进行显式建模方可实现。
+
+为此我们开发enkrino引擎以解决这一问题，在建模过程简单化和执行过程灵活化之间取得平衡。
+
+
+# enkrino设计理念
+
