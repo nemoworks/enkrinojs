@@ -17,7 +17,7 @@ state "design model" as designedmodel {
 
 state "mirror model" as mirror#lightblue{
 
-    state "S1" as MS1 ##[bold]green : \t**start | starting context** 
+    state "S1" as MS1 ##[bold]green : \t**start->S1 | starting context** 
     state "S2" as MS2 : \t
     state "S3" as MS3 : \t
     state "S4" as MS4 : \t
