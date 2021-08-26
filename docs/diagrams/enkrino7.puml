@@ -1,0 +1,29 @@
+@startuml
+state model {
+    state S1 
+    state S2 
+    state S3 
+    state S4 ##[bold]green
+
+
+    [*] -left-> S1
+    S1 -up-> S2
+    S1 -down-> S3
+    S2 -down-> S4
+    S3 -up-> S4
+    S4 -left-> [*]
+}
+
+state mirror #lightblue{
+    state "S1" as MS1 : \t**S4 | context 3**\n\t**start | starting context**
+    state "S2" as MS2 : \t**S1 | context 1**
+    state "S3" as MS3 : \t**S1 | context 4**
+    state "S4" as MS4 ##[bold]green : \t**S3 | context 5**\n\t**S2 | context 2**
+    MS2 -down[dashed]-> MS1
+    MS4 -up[dashed]-> MS2
+    MS1 -right[dashed]-> MS4
+    MS3 -down[dashed]-> MS1
+    MS4 -down[dashed]-> MS3
+}
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+
+state "design model" as designedmodel {
+    state S1 ##[bold]green
+    state S2
+    state S3
+    state S4
+
+
+    [*] -left-> S1
+    S1 -up-> S2
+    S1 -down-> S3
+    S2 -down-> S4
+    S3 -up-> S4
+    S4 -left-> [*]
+}
+
+state mirror #lightblue{
+
+    state "S1" as MS1 ##[bold]green : \t**start | starting context** 
+    state "S2" as MS2 : \t
+    state "S3" as MS3 : \t
+    state "S4" as MS4 : \t
+
+}
+
+@enduml
