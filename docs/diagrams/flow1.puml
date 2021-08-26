@@ -1,7 +1,11 @@
 @startuml
-[*] -up-> 发起申请
+state 发起申请
+state 部门审批
+state 总办审批
+
+[*] -right-> 发起申请
 发起申请 -right-> 部门审批
 部门审批 -right-> 总办审批
-总办审批 -down-> [*]
+总办审批 -right-> [*]
 @enduml
 

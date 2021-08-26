@@ -1,10 +1,14 @@
 @startuml
-[*] --> 发起申请 :开始
+state 发起申请
+state 部门审批
+state 总办审批
+
+[*] -right-> 发起申请 :开始
 发起申请 -right-> 部门审批 :提交
 部门审批 -right-> 总办审批 :提交
 部门审批 -left[dashed]-> 发起申请 :退回
 总办审批 -left[dashed]-> 部门审批 :退回
 
-总办审批 -down-> [*] :结束
+总办审批 -right-> [*] :结束
 @enduml
 
