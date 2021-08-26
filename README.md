@@ -15,9 +15,13 @@ enkrio是一个极简的业务流程引擎。
 
 ![Reject Process](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/reject.puml)
 
-或者
+当然还可能存在更复杂的退回逻辑。例如下图所示，任意一个后续活动可以退回到任意一个前序活动。
 
 ![Reject Process 2](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/reject2.puml)
 
-当然还可能存在更复杂的退回逻辑（任意一个后续活动可以退回到任意一个前序活动，这种情况使用plantuml工具的活动图都很难表达出来）。
 
+若需要支持“回退”逻辑，那采用BPMN这类的活动图来进行审批流程建模就需要在模型中表达出这样的活动关系。当流程节点数量增加时，回退关系的数量会呈几何级数增长。
+
+此外，实际业务中可能还存在“回退后可直接提交至回退发起节点”这样的需要。如下图所示，如果“总办审批”直接回退到“发起申请”活动，则发起者可以修改后直接提交至总办进行重新审批。
+
+![Reject Process 2](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/reject3.puml)
