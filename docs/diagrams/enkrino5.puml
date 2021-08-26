@@ -14,7 +14,7 @@ state model {
     S4 -left-> [*]
 }
 
-state mirror #lightblue{
+state "mirror model" as mirror#lightblue{
     state "S1" as MS1 ##[bold]green  : \t**S4 ｜ context 3**\n\t**start | starting context**
     state "S2" as MS2 : \t**S1 | context 1**
     state "S3" as MS3 : \t

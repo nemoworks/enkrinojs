@@ -30,14 +30,34 @@ enkrio是一个极简的业务流程引擎。
 
 为此我们开发enkrino引擎以解决这一问题，在建模过程简单化和执行过程灵活化之间取得平衡。
 
+# enkrino设计理念
 
+enkrino的核心思想是在运行时基于流程模型执行的历史记录动态决定流程的下一个合法状态。
+
+引擎内为每个部署运行的模型自动构建一个“镜像模型”，初始状态下，镜像模型只包含设计模型中的所有节点，并且在每个节点的状态数据中维护一个执行上下文栈（下简称ECS），用以存放每个节点执行时的各类状态数据。
 ![enkrino1](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino1.puml)
+
+流程启动后进入`S1`执行，我们在S1的ECS中加入`start|starting context`
 
 ![enkrino2](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino2.puml)
 
+在此之后引擎如果完成`S1`，则下一个状态的选择根据设计模型与镜像模型共同决定：两个模型中S1的后续节点都可以是引擎可选的下一个执行节点。根据当前状态，`S1`在设计模型中存在后续节点`S2`或`S3`（此处省略了条件选择状态)，镜像模型中`S1`无后续节点，所以引擎可选择`S2`或`S3`。
+
+假设引擎选择进入`S2`状态继续执行，则我们在镜像模型中记录`S1`执行中的上下文`S1|context1`，并在镜像模型中添加`S2`到`S1`的边。
+
+
+
 ![enkrino3](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino3.puml)
 
+在此之后引擎如果完成`S2`，根据前述下一节点选择规则，`S2`后续可进入`S4`（设计模型中的后续）或`S1`（镜像模型中的后续，即`S1`一个合法的回退节点）。
+
+假设引擎选择进入`S4`状态继续执行，则我们在镜像模型中记录`S4`执行中的上下文`S2|context2`，并在镜像模型中添加`S4`到`S2`的边。
+
 ![enkrino4](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino4.puml)
+
+
+在此之后引擎如果完成`S4`，根据前述下一节点选择规则，`S4`后续可进入`S2`（设计模型中的后续）或`S1`（镜像模型中的后续，即`S1`一个合法的回退节点）。
+
 
 ![enkrino5](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino5.puml)
 
@@ -46,5 +66,4 @@ enkrio是一个极简的业务流程引擎。
 ![enkrino7](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/nemoworks/enkrinojs/master/docs/diagrams/enkrino7.puml)
 
 
-# enkrino设计理念
 

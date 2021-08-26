@@ -15,7 +15,7 @@ state "design model" as designedmodel {
     S4 -left-> [*]
 }
 
-state mirror #lightblue{
+state "mirror model" as mirror#lightblue{
 
     state "S1" as MS1 ##[bold]green : \t**start | starting context** 
     state "S2" as MS2 : \t
